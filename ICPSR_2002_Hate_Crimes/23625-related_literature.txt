@@ -1,0 +1,120 @@
+Bibliography
+Uniform Crime Reporting Program Data [United States]: Hate Crime Data, 2002
+[Record-Type Files]
+
+This bibliography includes published and unpublished works that are related 
+to ICPSR study 23625. It includes works that are based on primary
+or secondary analysis of the data, or which describe or critique those
+data or the collection methodology. 
+
+If you publish a work or know of other works that are based on these data,
+please send the complete citation and name of the ICPSR study used to:
+icpsr-biblio-notify@umich.edu 
+
+
+1. Federal Bureau of Investigation, "Hate Crime Statistics, 2002."
+Washington, DC: United States Department of Justice, Federal Bureau of
+Investigation.
+Full text PDF: http://www.fbi.gov/ucr/hatecrime2002.pdf
+
+2. Gould, Eric D.; Klor, Esteban F., "Islamic Terrorism, Backlash, and the
+Assimilation of Muslim Immigrants in Western Countries." Updated Dec 16,
+2015,.
+Full text: http://www.voxeu.org/article/islamic-terrorism-and-assimilation-muslims
+
+3. Harlow, Caroline Wolf, "Hate Crime Reported by Victims and Police."
+Special Report. NCJ 209911, Washington, DC: United States Department of
+Justice, Office of Justice Programs, Bureau of Justice Statistics, Nov
+2005.
+Full text: http://bjs.ojp.usdoj.gov/content/pub/ascii/hcrvp.txt
+Full text PDF: http://bjs.ojp.usdoj.gov/content/pub/pdf/hcrvp.pdf
+This BJS Special Report uses data from victims' reports to the NCVS from
+July 2000 through December 2003 and from police reports to the FBI's
+Uniform Crime Reporting Program (UCR) in 2002 to describe characteristics
+of hate crimes. Information is provided on the motivations for hate crime
+as perceived by victims, the types of crimes which victims thought were
+hate-related, reasons for reporting or not reporting hate crimes to police,
+police response to victim's notification of a crime, the time and place at
+which hate crimes occurred and offenders' gender, race, age, relationship
+to the victim, use of weapons, and gang membership.
+
+4. King, Ryan D.; Sutton, Gretchen M., "High times for hate crimes:
+Explaining the temporal clustering of hate-motivated offending."
+Criminology. Nov 2013, 51, (4), 871 - 894. DOI: 10.1111/1745-9125.12022
+Full text: http://bjs.ojp.usdoj.gov/content/pub/ascii/hcrvp.txt
+Full text PDF: http://bjs.ojp.usdoj.gov/content/pub/pdf/hcrvp.pdf
+This BJS Special Report uses data from victims' reports to the NCVS from
+July 2000 through December 2003 and from police reports to the FBI's
+Uniform Crime Reporting Program (UCR) in 2002 to describe characteristics
+of hate crimes. Information is provided on the motivations for hate crime
+as perceived by victims, the types of crimes which victims thought were
+hate-related, reasons for reporting or not reporting hate crimes to police,
+police response to victim's notification of a crime, the time and place at
+which hate crimes occurred and offenders' gender, race, age, relationship
+to the victim, use of weapons, and gang membership.
+
+5. Martz, Ryan Brevin, "Bias Crime Incidence in United States Counties,
+2000-2009: An Application of Social Disorganization Theory." Dissertation,
+Michigan State University, 2014.
+Full text: http://bjs.ojp.usdoj.gov/content/pub/ascii/hcrvp.txt
+Full text PDF: http://bjs.ojp.usdoj.gov/content/pub/pdf/hcrvp.pdf
+This BJS Special Report uses data from victims' reports to the NCVS from
+July 2000 through December 2003 and from police reports to the FBI's
+Uniform Crime Reporting Program (UCR) in 2002 to describe characteristics
+of hate crimes. Information is provided on the motivations for hate crime
+as perceived by victims, the types of crimes which victims thought were
+hate-related, reasons for reporting or not reporting hate crimes to police,
+police response to victim's notification of a crime, the time and place at
+which hate crimes occurred and offenders' gender, race, age, relationship
+to the victim, use of weapons, and gang membership.
+
+6. Mason, Patrick L.; Matella, Andrew, "Stigmatization and Racial Selection
+after September 11, 2001: Self-identity among Arab and Islamic Americans
+." Tallahassee, FL: Florida State University, Oct 2013..
+Full text: http://bjs.ojp.usdoj.gov/content/pub/ascii/hcrvp.txt
+Full text PDF: http://bjs.ojp.usdoj.gov/content/pub/pdf/hcrvp.pdf
+This BJS Special Report uses data from victims' reports to the NCVS from
+July 2000 through December 2003 and from police reports to the FBI's
+Uniform Crime Reporting Program (UCR) in 2002 to describe characteristics
+of hate crimes. Information is provided on the motivations for hate crime
+as perceived by victims, the types of crimes which victims thought were
+hate-related, reasons for reporting or not reporting hate crimes to police,
+police response to victim's notification of a crime, the time and place at
+which hate crimes occurred and offenders' gender, race, age, relationship
+to the victim, use of weapons, and gang membership.
+
+7. Merrill, Sarah, "The Impact of September 11, 2001 on Anti-Islamic Hate
+Crimes in the U.S.." Thesis, George Mason University, 2013.
+Full text: http://bjs.ojp.usdoj.gov/content/pub/ascii/hcrvp.txt
+Full text PDF: http://bjs.ojp.usdoj.gov/content/pub/pdf/hcrvp.pdf
+This BJS Special Report uses data from victims' reports to the NCVS from
+July 2000 through December 2003 and from police reports to the FBI's
+Uniform Crime Reporting Program (UCR) in 2002 to describe characteristics
+of hate crimes. Information is provided on the motivations for hate crime
+as perceived by victims, the types of crimes which victims thought were
+hate-related, reasons for reporting or not reporting hate crimes to police,
+police response to victim's notification of a crime, the time and place at
+which hate crimes occurred and offenders' gender, race, age, relationship
+to the victim, use of weapons, and gang membership.
+
+8. Shively, Michael, "Study of Literature and Legislation on Hate Crime in
+America." Final Report to NIJ. 210300, Washington, DC: United States
+Department of Justice, National Institute of Justice, Jun 2005. ASP-T-049
+Full text PDF: http://www.ncjrs.gov/pdffiles1/nij/grants/210300.pdf
+
+9. Stacey, Michele, "The effect of law on hate crime reporting: The case
+of racial and ethnic violence." American Journal of Criminal Justice. Dec
+2015, 40, (4), 876 - 900. DOI: 10.1007/s12103-015-9289-3
+Full text PDF: http://www.ncjrs.gov/pdffiles1/nij/grants/210300.pdf
+
+10. Stacey, Michele; Carbone-Lopez, Kristin; Rosenfeld, Richard,
+"Demographic change and ethnically motivated crime: The impact of
+immigration on anti-Hispanic hate crime in the United States." Journal of
+Contemporary Criminal Justice. Aug 2011, 27, (3), 299 - 321. DOI:
+10.1177/1043986211412560
+Full text PDF: http://www.ncjrs.gov/pdffiles1/nij/grants/210300.pdf
+
+11. Stotzer, Rebecca L.; Hossellman, Emily, "Hate crimes on campus:
+Racial/ethnic diversity and campus safety." Journal of Interpersonal
+Violence. Mar 2012, 27, (4), 644 - 661. DOI: 10.1177/0886260511423249
+Full text PDF: http://www.ncjrs.gov/pdffiles1/nij/grants/210300.pdf
