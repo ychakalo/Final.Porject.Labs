@@ -94,11 +94,11 @@ hist(data_subset13$BIASMO1,
 
 ## Making a bivariate scatterplot for my two data sets.
 ```{r}
-plot(data_subset2$BIASMO1)
-plot(data_subset13$BIASMO1)
+plot(data_subset2$BIASMO1, data_subset2$TNUMVTMS)
+plot(data_subset13$BIASMO1, data_subset13$TNUMVTMS)
 
-plot(data_subset2$TNUMVTMS)
-plot(data_subset13$TNUMVTMS)
+plot(data_subset2$BIASMO1, data_subset2$TNUMOFF)
+plot(data_subset13$TNUMVTMS, data_subset13$TNUMOFF)
 ```
 
 
@@ -156,8 +156,8 @@ I do have some special values for example the values indicating the race of the 
 
 ## Boxplots for 2 different variables of my data. TNUMOFF is the total number of offenders and TNUMVTMS is the total number of victims in the incident
 ```{r}
-boxplot(data_subset2$TNUMOFF)
-boxplot(data_subset13$TNUMOFF)
+boxplot(data_subset2$BIASMO1, data_subset2$TNUMVTMS)
+boxplot(data_subset13$BIASMO1, data_subset13$TNUMOFF)
 
 boxplot(data_subset2$TNUMVTMS)
 boxplot(data_subset13$TNUMVTMS)
