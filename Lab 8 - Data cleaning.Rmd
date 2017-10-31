@@ -11,13 +11,18 @@ Using your own dataset (which may include more than one table) carry out the fol
 
 **Before you begin: as many of you have large datasets, you're going to want to select only the variables you're interested in utilizing for this project (ideally no more than twenty columns but perhaps much smaller) so you don't have R Studio's memory working on the entire dataset. The example code provided below can be modified to allow you to subset your data to only the variables you wish to use. First, read in your complete dataset and save it as** `data`. **Then, add the names of the variables you wish to use for your poster project to the** `select` **function, separated by commas. Run the two lines of code to save this new, smaller version of your data to** `data_subset`. **Use this smaller dataset to complete the rest of the lab**
 
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+
 ## Installing packages that i might need to use.
 ```{r}
-install.packages("dplyr")
-install.packages("readr")
-install.packages("packrat")
-install.packages("foreign")
-install.packages("tidyverse")
+install.packages("dplyr", repos = "https://CRAN.R-project.org/package=dplyr")
+install.packages("readr", repos ="https://CRAN.R-project.org/package=readr")
+install.packages("packrat", repos = "https://CRAN.R-project.org/package=packrat")
+install.packages("foreign", repos = "https://CRAN.R-project.org/package=foreign")
+install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 ```
 
 ## Downloading my data set and which variables i want to this lab and to Rstudio.
