@@ -21,14 +21,14 @@ install.packages("tidyverse")
 ```
 
 ## Downloading my data set and which variables i want to this lab and to Rstudio.
-```{r}
 # Read in your data with the appropriate function
+# replace with variable's you wish to add
 
+```{r}
 data2 <- read_tsv("/Users/soniachakalo/Downloads/Final.Porject.Labs/ICPSR_23625_2002/DS0002/23625-0002-Data.tsv")
   
 data_subset2 <- data2 %>%
   select(CITY, STATECOD, POP1, TNUMVTMS, TNUMOFF, GOFFRAC, BIASMO1, VTYP_I1, LOCCOD1, VTYP_I1, LOCCOD1) 
-# replace with variable's you wish to add
 ```
 
 ```{r}
