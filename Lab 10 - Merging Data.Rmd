@@ -2,7 +2,9 @@
 title: "Lab 10 - Merging Data"
 author: "Yana Chakalo"
 date: "November 2, 2017"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 Using your own dataset (which may include more than one table) carry out the following data cleaning steps. Knit together the PDF document and commit both the Lab 10 RMD file and the PDF document to Git. Push the changes to GitHub so both documents are visible in your public GitHub repository. 
@@ -24,7 +26,13 @@ If you are merging separate tables as part of your data manipulation process, ar
 
 ## Grouping the city and state in dataset 2002 and wanting to get the mean number of offenders for each city. Also counting the amount of different Bias motives within each year to figure out more data munging.
 
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
 ```{r}
+library(dplyr)
+
 test2 <- group_by(data_subset2, CITY, STATECOD)
 summarise(data_subset2, avg = mean(TNUMOFF))
 summarise(test2, avg = mean(TNUMOFF))
@@ -32,6 +40,7 @@ summarise(test2, avg = mean(TNUMOFF))
 count(test2, BIASMO1)
 
 count(data_subset2, BIASMO1)
+
 ```
 
 ## 2013 version
