@@ -1,0 +1,231 @@
+---
+title: "ICPSR_Hate_Crime_Codebook"
+author: "Yana Chakalo"
+date: "November 14, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+**Study Design**
+
+This study is a data collection from two different datasets from the years 2002 and 2013. Their puspose was to collect all hate crime incident reports from all over the United States in the years 2002 and 2013. Due to an increase in hate crimes within the United States the United States congress enacted a Hate Crime Statistics Act of 1990. This act requires the attorney general to collect data on hate crimes as part of the Uniform Crime Reporting (UCR) Program. This act was only supposed to be around for aobut 4 years, however, through the years it began amended and now it is permanent addition to the UCR program. And now every year data is collected on hate crimes throughout the US. The way that is data is collected by law enforcment agencies contributing reports either directly or through their state reporting programs. For all data collections the U.S. Dept. of Justice and the Federal Bureau of Investigation are the primary data collectors and the UCR program is the sponser and the funding agency is the United States Department of Justice and Bureau of Justice Statistics. The way that the data is collected is through self-enumerated questionnaire for all law enforcment agencies. And for each year the data collection begins on January 1st and ends on December 31st. 
+
+**Sampling**
+
+The sampling population of this yearly study are all incident reports within the 50 states in the United states. Every hate crime incident report is gathered by every law enforcment agency within each city and county jurisdiction and then given to the U.S. Dept. of Justice and the FBI for official collection and analysis. The conditions for this collection is that these incident reports are the ones that were reported to law enforcment. There are hate crimes that occur in the United States but do not get reported to law enforcment and thus not recorded that year for the UCR progam. So within the datasets I am using for years 2002 and 2013 these hate crimes are obviously not a completely inclusive account of all hate crimes in the US but only the reported incidents. 
+
+**Variable Index**
+
+# Loading libraries
+
+```{r}
+library(memisc)
+library(tidyverse)
+```
+
+# Create data.set object from "data" object (tbl)
+
+```{r}
+data_set2 <- as.data.set(data_subset2)
+
+data_set13 <- as.data.set(data_subset13)
+```
+
+# Look at new data.set object
+
+```{r}
+data_set2
+data_set13
+```
+
+
+# Index Variable for data set 2002
+```{r}
+data_set2 <- within(data_set2,{
+
+description(CITY) <- "City where the incident occured"
+description(STATECOD) <- "State where the incident occurred"
+description(POP1) <- "Population of the city"
+description(TNUMVTMS) <- "Total Number of Individual Victims in the incident"
+description(TNUMOFF) <- "Total Number of Offenders in the incident"
+description(GOFFRAC) <- "Offenders Race-as a Group"
+description(BIASMO1) <- "Bias motivation of the offender(s) for this offense"
+description(VTYP_I1) <- "Victim type for this offense"
+description(LOCCOD1) <- "Where this offense occurred"
+
+labels(GOFFRAC) <- c(
+  "Unknown" = "U",
+  "White" = "W",
+  "Black" = "B",
+  "American Indian/Alaskan Native" = "I",
+  "Asian/Pacific Islander" = "A",
+  "Multi-Racial Group" = "M")
+
+labels(BIASMO1) <- c(
+  "Anti-White" = 11,
+  "Anti-Black" = 12,
+  "Anti-Am Indian" = 13,
+  "Anti-Asian" = 14,
+  "Anti-Multi-Racial" = 15,
+  "Anti-Jewish" = 21,
+  "Anti-Catholic" = 22,
+  "Anti-Protestant" = 23,
+  "Anti-Islamic" = 24,
+  "Anti-Other Religion" = 25,
+  "Anti-Multi-Religious" = 26,
+  "Anti-Atheism/Agnosticism" = 27,
+  "Anti-Hispanic" = 32,
+  "Anti-Other ethnicity" = 33,
+  "Anti-Male Homosexual" = 41,
+  "Anti-Female Homosexual" = 42,
+  "Anti-Homosexual (both)" = 43,
+  "Anti-Heterosexual" = 44,
+  "Anti-Bisexual" = 45,
+  "Anti-Physical Disability" = 51,
+  "Anti-Mental Disability" = 52)
+
+labels(VTYP_I1) <- c(
+  "Individual Victim" = 1,
+  "Not Victim" = 0)
+
+labels(LOCCOD1) <- c(
+  "Terminal" = 1,
+  "Bank" = 2,
+  "Bar" = 3,
+  "Church/Synagogue/Temple" = 4,
+  "Office building" = 5,
+  "Construction site" = 6,
+  "Convenience store" = 7,
+  "Department store" = 8,
+  "Drug store/dr office/hosp" = 9,
+  "Field/woods" = 10,
+  "Govt/public building" = 11,
+  "Grocery/supermarket" = 12,
+  "Highway/road/alley" = 13,
+  "Hotel/motel" = 14,
+  "Jail/prison" = 15,
+  "Lake/waterway" = 16,
+  "Liquor store" = 17,
+  "Parking lot/garage" = 18,
+  "Rental store" = 19,
+  "Residence/home" = 20,
+  "Restaurant" = 21,
+  "School/college" = 22,
+  "Service/gas station" = 23,
+  "Specialty store" = 24,
+  "Other/unknown" = 25)
+})
+
+```
+
+
+# Index Variable for data set 2013
+
+```{r}
+data_set13 <- within(data_set13,{
+
+description(CITY) <- "City where the incident occured"
+description(STATECOD) <- "State where the incident occurred"
+description(POP1) <- "Population of the city"
+description(TNUMVTMS) <- "Total Number of Individual Victims in the incident"
+description(TNUMOFF) <- "Total Number of Offenders in the incident"
+description(GOFFRAC) <- "Offenders Race-as a Group"
+description(BIASMO1) <- "Bias motivation of the offender(s) for this offense"
+description(VTYP_I1) <- "Victim type for this offense"
+description(LOCCOD1) <- "Where this offense occurred"
+
+labels(GOFFRAC) <- c(
+  "Unknown" = "U",
+  "White" = "W",
+  "Black" = "B",
+  "American Indian/Alaskan Native" = "I",
+  "Asian/Pacific Islander" = "A",
+  "Multi-Racial Group" = "M")
+
+labels(BIASMO1) <- c(
+  "Anti-White" = 11,
+  "Anti-Black" = 12,
+  "Anti-Am Indian" = 13,
+  "Anti-Asian" = 14,
+  "Anti-Multi-Racial" = 15,
+  "Anti-Jewish" = 21,
+  "Anti-Catholic" = 22,
+  "Anti-Protestant" = 23,
+  "Anti-Islamic" = 24,
+  "Anti-Other Religion" = 25,
+  "Anti-Multi-Religious" = 26,
+  "Anti-Atheism/Agnosticism" = 27,
+  "Anti-Hispanic" = 32,
+  "Anti-Other ethnicity" = 33,
+  "Anti-Male Homosexual" = 41,
+  "Anti-Female Homosexual" = 42,
+  "Anti-Homosexual (both)" = 43,
+  "Anti-Heterosexual" = 44,
+  "Anti-Bisexual" = 45,
+  "Anti-Physical Disability" = 51,
+  "Anti-Mental Disability" = 52)
+
+labels(VTYP_I1) <- c(
+  "Individual Victim" = 1,
+  "Not Victim" = 0)
+
+labels(LOCCOD1) <- c(
+  "Terminal" = 1,
+  "Bank" = 2,
+  "Bar" = 3,
+  "Church/Synagogue/Temple" = 4,
+  "Office building" = 5,
+  "Construction site" = 6,
+  "Convenience store" = 7,
+  "Department store" = 8,
+  "Drug store/dr office/hosp" = 9,
+  "Field/woods" = 10,
+  "Govt/public building" = 11,
+  "Grocery/supermarket" = 12,
+  "Highway/road/alley" = 13,
+  "Hotel/motel" = 14,
+  "Jail/prison" = 15,
+  "Lake/waterway" = 16,
+  "Liquor store" = 17,
+  "Parking lot/garage" = 18,
+  "Rental store" = 19,
+  "Residence/home" = 20,
+  "Restaurant" = 21,
+  "School/college" = 22,
+  "Service/gas station" = 23,
+  "Specialty store" = 24,
+  "Other/unknown" = 25)
+})
+
+```
+
+
+# Looking at my created codebooks for 2002 and 2013 data sets.
+
+```{r}
+codebook(data_set2)
+codebook(data_set13)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
