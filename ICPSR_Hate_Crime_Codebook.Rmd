@@ -2,7 +2,9 @@
 title: "ICPSR_Hate_Crime_Codebook"
 author: "Yana Chakalo"
 date: "November 14, 2017"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -27,10 +29,29 @@ The sampling population of this yearly study are all incident reports within the
 
 ```{r}
 library(memisc)
-library(tidyverse)
+install.packages("tidyverse")
 ```
 
+
 # Create data.set object from "data" object (tbl)
+
+```{r}
+data2 <- read_tsv("~/Downloads/Final.Porject.Labs/ICPSR_23625_2002/DS0002/23625-0002-Data.tsv")
+
+data13 <- read_tsv("~/Downloads/Final.Porject.Labs/ICPSR_36118_2013/DS0002/36118-0002-Data.tsv")
+```
+
+# Making my original data subset
+
+```{r}
+data_subset2 <- data2 %>%
+  select(CITY, STATECOD, POP1, TNUMVTMS, TNUMOFF, GOFFRAC, BIASMO1, VTYP_I1, LOCCOD1, VTYP_I1, LOCCOD1)  
+
+data_subset13 <- data13 %>%
+  select(CITY, STATECOD, POP1, TNUMVTMS, TNUMOFF, GOFFRAC, BIASMO1, VTYP_I1, LOCCOD1, VTYP_I1, LOCCOD1) 
+```
+
+
 
 ```{r}
 data_set2 <- as.data.set(data_subset2)
