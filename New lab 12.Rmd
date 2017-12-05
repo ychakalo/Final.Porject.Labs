@@ -1,0 +1,248 @@
+---
+title: "Lab 12 - Statistics, Coordinates, Facets, and Themes"
+author: "Yana Chakalo"
+date: "November 14, 2017"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+Complete the following exercises below. Knit together the PDF document and commit both the Lab 12 RMDfile and the PDF document to Git. Push the changes to GitHub so both documents are visible in your public GitHub repository.
+
+
+## Installing packages that i might need to use.
+```{r}
+options(repos = c(CRAN = "http://cran.rstudio.com"))
+install.packages("dplyr")
+install.packages("packrat")
+install.packages("readr")
+install.packages("foreign")
+install.packages("haven")
+install.packages("knitr")
+install.packages("tidyverse")
+library("tidyverse")
+library("dplyr")
+library("packrat")
+library("readr")
+library("foreign")
+library("haven")
+library("knitr")
+```
+
+
+```{r}
+setwd("/Users/soniachakalo/Downloads/Final.Porject.Labs")
+
+opts_knit$set(root.dir = "/Users/soniachakalo/Downloads/Final.Porject.Labs")
+
+getwd()
+```
+
+## Downloading my data set and which variables i want to this lab and to Rstudio.
+# Read in your data with the appropriate function
+# replace with variable's you wish to add
+#2002
+```{r}
+data2 <- read_tsv("/Users/soniachakalo/Downloads/Final.Porject.Labs/23625_0002_Data.tsv")
+  
+data_subset2 <- data2 %>%
+  select(CITY, STATECOD, POP1, TNUMVTMS, TNUMOFF, GOFFRAC, BIASMO1, VTYP_I1, LOCCOD1, VTYP_I1, LOCCOD1) 
+```
+
+#2013
+```{r}
+# Read in your data with the appropriate function
+data13 <- read_tsv("/Users/soniachakalo/Downloads/Final.Porject.Labs/36118-0002-Data.tsv")
+  
+data_subset13 <- data13 %>%
+  select(CITY, STATECOD, POP1, TNUMVTMS, TNUMOFF, GOFFRAC, BIASMO1, VTYP_I1, LOCCOD1, VTYP_I1, LOCCOD1) 
+# replace with variable's you wish to add
+```
+
+
+1. Choose one or more graphics you created for Lab 11 and either experiment with the underlying statistical layer if it already has one (i.e. if you made a histogram experiement with different bin widths) or add a separate statistical layer to your plot (i.e. a smooothing curve). Choose something you think will offer meaningful insight and describe why you made the choice you did. What additional information does this provide viewers of your graphic?
+
+
+
+I organized my data in a way that included all the categorical variables into descriptions that people will be able to read instead of the numbers that were original assigned for each category. I did this so it would not be tiresome to consistently look at the codebook because my data has a lot of variables. 
+
+
+
+# BIASMO1 histograms, 2002 & 2013
+
+```{r}
+theme_set(theme_classic())
+
+g <- ggplot(data = data_subset2, aes(x=as.factor(BIASMO1)))
+g + geom_bar(stat="count", width = 0.5, fill="tomato2") + 
+      labs(title="Frequency of BIASMO1, 2002 Bar Chart", 
+           subtitle="The rate of each Bias motivation", 
+           caption="Type of Bias Motivation") +
+   theme_hc() +    
+  theme(axis.text.x = element_text(angle=90, vjust=0.6)) +
+  scale_x_discrete(labels=c("Anti-White", "Anti-Black","Anti-Am Indian", "Anti-Asian", "Anti-Multi-Racial", "Anti-Jewish", "Anti-Catholic", "Anti-Protestant", "Anti-Islamic", "Anti-Other Religion", "Anti-Multi-Religious", "Anti-Atheism/Agnosticism", "Anti-Hispanic", "Anti-Other ethnicity", "Anti-Male Homosexual", "Anti-Female Homosexual", "Anti-Homosexual (both)", "Anti-Heterosexual", "Anti-Bisexual", "Anti-Physical Disability", "Anti-Mental Disability"))
+
+g <- ggplot(data = data_subset13, aes(x=as.factor(BIASMO1)))
+g + geom_bar(stat="count", width = 0.5, fill="tomato2") + 
+      labs(title="Frequency of BIASMO1, 2013 Bar Chart", 
+           subtitle="The rate of each Bias motivation", 
+           caption="Type of Bias Motivation") +
+   theme_hc() +    
+  theme(axis.text.x = element_text(angle=90, vjust=0.6)) +
+  scale_x_discrete(labels=c("Anti-White", "Anti-Black or African American", "Anti-American Indian or Alaska Native", "Anti-Asian", "Anti-Multi-Racial", "Anti-Native Hawaiian or Other PI", "Anti-Jewish", "Anti-Catholic", "Anti-Protestant", "Anti-Islamic", "Anti-Other Religion", "Anti-Multi-Religious", "Anti-Atheism/Agnosticism", "Anti-Hispanic or Latino", "Anti-Not Hispanic or Latino", "Anti-Male Homosexual", "Anti-Female Homosexual", "Anti-LGBTQ+", "Anti-Heterosexual", "Anti-Bisexual", "Anti-Physical Disability", "Anti-Mental Disability", "Anti-Male", "Anti-Female", "Anti-Transgender", "Anti-Gender Non-Conforming"))
+
+```
+
+
+
+# GOFFRAC histograms, 2002 & 2013
+
+```{r}
+g <- ggplot(data = data_subset2, aes(GOFFRAC))
+g + geom_bar(stat="count", width = 0.5, fill="blue") + 
+      labs(title="Frequency of GOFFRAC, 2002 Bar Chart", 
+           subtitle="The Frequency of Offenders Race", 
+           caption="Frequency of Offenders Race") +
+   theme_hc() +    
+  theme(axis.text.x = element_text(angle=65, vjust=0.6)) +
+  scale_x_discrete(labels=c("Asian", "Black or African American", "American Indian/Alaska Native", "Multi-Racial Group", "Unknown", "White"))
+   
+
+g <- ggplot(data = data_subset13, aes(GOFFRAC))
+g + geom_bar(stat="count", width = 0.5, fill="blue") + 
+      labs(title="Frequency of GOFFRAC, 2013 Bar Chart", 
+           subtitle="The Frequency of Offenders Race", 
+           caption="Frequency of Offenders Race") +
+   theme_hc() +    
+  theme(axis.text.x = element_text(angle=65, vjust=0.6)) +
+  scale_x_discrete(labels=c("Asian", "Black or African American", "American Indian/Alaska Native", "Multi-Racial Group", "Native Hawaiian or other PI", "Unknown", "White"))
+```
+
+# LOCCOD1 Histograms 2002 & 2013
+
+```{r}
+
+g <- ggplot(data = data_subset2, aes(x=as.factor(LOCCOD1)))
+g + geom_bar(stat="count", width = 0.5, fill="green") + 
+      labs(title="Frequency of LOCCOD1, 2002 Bar Chart", 
+           subtitle="The Frequency of Incident Location", 
+           caption="Frequency of Where the Hate Crime Took Place") +
+   theme_hc() +    
+  theme(axis.text.x = element_text(angle=90, vjust=0.6)) +
+scale_x_discrete(labels=c("Terminal", "Bank", "Bar", "Church/Synagogue/Temple", "Office building", "Construction site", "Convenience store", "Department store", "Drug store/dr office/hosp", "Field/woods", "Govt/public building", "Grocery/supermarket", "Highway/road/alley", "Hotel/motel", "Jail/prison", "Lake/waterway", "Liquor store", "Parking lot/garage", "Rental store", "Residence/home", "Restaurant", "School/college", "Service/gas station", "Specialty store", "Other/unknown"))
+  
+
+g <- ggplot(data = data_subset13, aes(x=as.factor(LOCCOD1)))
+g + geom_bar(stat="count", width = 0.5, fill="green") + 
+      labs(title="Frequency of LOCCOD1, 2013 Bar Chart", 
+           subtitle="The Frequency of Incident Location", 
+           caption="Frequency of Where the Hate Crime Took Place") +
+   theme_hc() +    
+  theme(axis.text.x = element_text(angle=90, vjust=0.6)) +
+scale_x_discrete(labels=c("Terminal", "Bank", "Bar", "Church/Synagogue/Temple", "Office building", "Construction site", "Convenience store", "Department store", "Drug store/dr office/hosp", "Field/woods", "Govt/public building", "Grocery/supermarket", "Highway/road/alley", "Hotel/motel", "Jail/prison", "Lake/waterway", "Liquor store", "Parking lot/garage", "Rental store", "Residence/home", "Restaurant", "School/college", "Service/gas station", "Specialty store", "Other/unknown", "Abandoned/condemned structure", "Amusement park", "Arena/stadium/fairgrounds/coliseum", "ATM separate from bank", "Auto dealership new/used", "Camp/campground", "Daycare facility", "Dock/wharf/freight/modal terminal", "Farm facility", "Gambling facility/casino/race track", "Industrial site", "Military installation", "Park/playground", "Rest area", "School--college/university", "School--elementary/secondary", "Shelter--mission/homeless", "Shopping mall", "Tribal lands", "Community center"))
+    
+
+```
+
+
+# STATECOD histograms, 2002 & 2013
+
+```{r}
+g <- ggplot(data = data_subset2, aes(x=as.factor(STATECOD)))
+g + geom_bar(stat="count", width = 0.5, fill="purple") + 
+      labs(title="Frequency of STATECOD, 2002 Bar Chart", 
+           subtitle="The Frequency of States", 
+           caption="Frequency of States Where Hate Crimes Have Occured") +
+      theme_hc() +   
+  theme(axis.text.x = element_text(angle=65, vjust=0.6))
+  
+
+
+
+
+g <- ggplot(data = data_subset13, aes(x=as.factor(STATECOD)))
+g + geom_bar(stat="count", width = 0.5, fill="purple") + 
+      labs(title="Frequency of STATECOD, 2013 Bar Chart", 
+           subtitle="The Frequency of States", 
+           caption="Frequency of States Where Hate Crimes Have Occured") +
+  theme_hc() +       
+  theme(axis.text.x = element_text(angle=65, vjust=0.6))
+```
+
+
+2. With the same or a different plot created in Lab 11, experiment with zooming in on specific areas of your graphic and changing the aspect ratio. Are their any benefits/drawbacks with either or both of these approaches for the visualizations you've created? What are they? 
+
+# Data from 2002. I zoomed in on two specific bias motives to compare them.
+
+```{r}
+g <- ggplot(data = data_subset2, aes(x=as.factor(BIASMO1)))
+g + geom_bar(stat="count", width = 0.5, fill="tomato2") + 
+      labs(title="Frequency of BIASMO1, 2002 Bar Chart", 
+           subtitle="The rate of each Bias motivation", 
+           caption="Type of Bias Motivation") +
+      theme(axis.text.x = element_text(angle=90, vjust=0.6)) +
+  scale_x_discrete(limit = c("11", "12"), labels=c("Anti-White", "Anti-Black"))
+```
+
+
+3. Try facetting a plot you have made by another categorical variable in your data (this can even be as simple as Male/Female). What is the difference between `facet_wrap()` and `facet_grid()`? How might facetting be useful in data visualization?
+
+Facet wrap strings up different frames based on a single variable. Facet grid takes two variables like X and Y.
+
+#Facet of 2002 data. The graph shows that the population above the mean population, 1, and population below the mean 0 and its location of the hate crime incidents. We see that the cities below the population mean have higher spikes in hate crimes committed in the home.  
+
+```{r, fig.height = 4, fig.asp = 0.5}
+
+mean.pop1 <- mean(data_subset2$POP1)
+
+data_subset2.2 <- data_subset2 %>%
+  group_by(CITY) %>%
+  mutate(pop.new = ifelse(POP1 >= mean.pop1, 1, 0))
+
+levels(data_subset2.2$pop.new) <- c("Below Mean Pop", "Above Mean Pop")
+
+levels(data_subset2.2$pop.new)[levels(data_subset2.2$pop.new) == "Below Mean Pop"] <- "Below Mean Pop"
+levels(data_subset2.2$pop.new)[levels(data_subset2.2$pop.new) == "Above Mean Pop"] <- "Above Mean Pop"
+
+
+g <- ggplot(data = data_subset2.2, aes(x=as.factor(LOCCOD1)))
+g + geom_bar(stat="count", width = 0.5, fill="green") + 
+      labs(title="Frequency of LOCCOD1, 2002 Bar Chart", 
+           subtitle="The Frequency of Incident Location", 
+           caption="Frequency of Incident Location") +
+  theme_hc() +
+      theme(axis.text.x = element_text(angle=90, vjust=0.6)) +
+scale_x_discrete(labels=c("Terminal", "Bank", "Bar", "Church/Synagogue/Temple", "Office building", "Construction site", "Convenience store", "Department store", "Drug store/dr office/hosp", "Field/woods", "Govt/public building", "Grocery/supermarket", "Highway/road/alley", "Hotel/motel", "Jail/prison", "Lake/waterway", "Liquor store", "Parking lot/garage", "Rental store", "Residence/home", "Restaurant", "School/college", "Service/gas station", "Specialty store", "Other/unknown")) +
+  facet_grid(pop.new ~ .,)
+#facet_grid(~ pop.new)
+
+```
+
+
+
+
+4. Use the `theme()` layer to change the appearance of a plot of your choice including the
+  * plot, axes, and legend titles
+  * axes tick marks
+  * text size
+  * legend position
+
+5. Create three versions of a graphic of your choice using different built-in themes or a theme created from `ggthemes`. Which ones do you think are best for presenting in an academic journal? A poster session? What are the qualities of the themes that you choice that you think make them more appropriate for presentation?
+
+The best themes I have found that are the best to use for posters are ones that have the simplest visually but also have vertical lines to visibly show and keep track of where the Y counts are on the plot. For acedemic journals that best can be ones with thicker fonts and lines so everything sticks out like the theme economist. For poster session I think is the few theme, something that is simple and plain but has thick enough lines and tick marks to show where the vaariable and axis are. Overall for a journal or newspaper article I think you can use thicker lines but in presentations its best to use thinner and simpler graphics.   
+
+# Trying out theme hc which i think is the best theme because it shows my data in the most clear of terms. (Code taken from question #1)
+
+```{r}
+theme_set(theme_classic())
+
+g <- ggplot(data = data_subset2, aes(x=as.factor(BIASMO1)))
+g + geom_bar(stat="count", width = 0.5, fill="tomato2") + 
+      labs(title="Frequency of BIASMO1, 2002 Bar Chart", 
+           subtitle="The rate of each Bias motivation", 
+           caption="Type of Bias Motivation") +
+   theme_hc() +    
+  theme(axis.text.x = element_text(angle=90, vjust=0.6)) +
+  scale_x_discrete(labels=c("Anti-White", "Anti-Black","Anti-Am Indian", "Anti-Asian", "Anti-Multi-Racial", "Anti-Jewish", "Anti-Catholic", "Anti-Protestant", "Anti-Islamic", "Anti-Other Religion", "Anti-Multi-Religious", "Anti-Atheism/Agnosticism", "Anti-Hispanic", "Anti-Other ethnicity", "Anti-Male Homosexual", "Anti-Female Homosexual", "Anti-Homosexual (both)", "Anti-Heterosexual", "Anti-Bisexual", "Anti-Physical Disability", "Anti-Mental Disability"))
+
+```
