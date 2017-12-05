@@ -77,16 +77,20 @@ g <- ggplot(data = data_subset2, aes(x=as.factor(BIASMO1)))
 g + geom_bar(stat="count", width = 0.5, fill="tomato2") + 
       labs(title="Frequency of BIASMO1, 2002 Bar Chart", 
            subtitle="The rate of each Bias motivation", 
-           caption="Type of Bias Motivation") +
+           caption="Type of Bias Motivation of the Hate Crime", x = "Bias Motivation", y = "Frequency Count") +
    theme_hc() +    
   theme(axis.text.x = element_text(angle=90, vjust=0.6)) +
   scale_x_discrete(labels=c("Anti-White", "Anti-Black","Anti-Am Indian", "Anti-Asian", "Anti-Multi-Racial", "Anti-Jewish", "Anti-Catholic", "Anti-Protestant", "Anti-Islamic", "Anti-Other Religion", "Anti-Multi-Religious", "Anti-Atheism/Agnosticism", "Anti-Hispanic", "Anti-Other ethnicity", "Anti-Male Homosexual", "Anti-Female Homosexual", "Anti-Homosexual (both)", "Anti-Heterosexual", "Anti-Bisexual", "Anti-Physical Disability", "Anti-Mental Disability"))
+
+
+
+
 
 g <- ggplot(data = data_subset13, aes(x=as.factor(BIASMO1)))
 g + geom_bar(stat="count", width = 0.5, fill="tomato2") + 
       labs(title="Frequency of BIASMO1, 2013 Bar Chart", 
            subtitle="The rate of each Bias motivation", 
-           caption="Type of Bias Motivation") +
+           caption="Type of Bias Motivation of the Hate Crime", x = "Bias Motivation", y = "Frequency Count") +
    theme_hc() +    
   theme(axis.text.x = element_text(angle=90, vjust=0.6)) +
   scale_x_discrete(labels=c("Anti-White", "Anti-Black or African American", "Anti-American Indian or Alaska Native", "Anti-Asian", "Anti-Multi-Racial", "Anti-Native Hawaiian or Other PI", "Anti-Jewish", "Anti-Catholic", "Anti-Protestant", "Anti-Islamic", "Anti-Other Religion", "Anti-Multi-Religious", "Anti-Atheism/Agnosticism", "Anti-Hispanic or Latino", "Anti-Not Hispanic or Latino", "Anti-Male Homosexual", "Anti-Female Homosexual", "Anti-LGBTQ+", "Anti-Heterosexual", "Anti-Bisexual", "Anti-Physical Disability", "Anti-Mental Disability", "Anti-Male", "Anti-Female", "Anti-Transgender", "Anti-Gender Non-Conforming"))
