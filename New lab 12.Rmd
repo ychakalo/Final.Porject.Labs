@@ -3,8 +3,8 @@ title: "Lab 12 - Statistics, Coordinates, Facets, and Themes"
 author: "Yana Chakalo"
 date: "November 14, 2017"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 Complete the following exercises below. Knit together the PDF document and commit both the Lab 12 RMDfile and the PDF document to Git. Push the changes to GitHub so both documents are visible in your public GitHub repository.
@@ -17,6 +17,7 @@ install.packages("dplyr")
 install.packages("packrat")
 install.packages("readr")
 install.packages("foreign")
+install.packages("ggthemes")
 install.packages("haven")
 install.packages("knitr")
 install.packages("tidyverse")
@@ -25,6 +26,7 @@ library("dplyr")
 library("packrat")
 library("readr")
 library("foreign")
+library("ggthemes")
 library("haven")
 library("knitr")
 ```
