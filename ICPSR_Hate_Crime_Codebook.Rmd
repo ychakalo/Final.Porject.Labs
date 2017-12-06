@@ -3,13 +3,9 @@ title: "ICPSR_Hate_Crime_Codebook"
 author: "Yana Chakalo"
 date: "November 14, 2017"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ```{r pressure, echo=FALSE}
 plot(pressure)
@@ -26,11 +22,26 @@ The sampling population of this yearly study are all incident reports within the
 **Variable Index**
 
 # Loading libraries
-
 ```{r}
-library(memisc)
+options(repos = c(CRAN = "http://cran.rstudio.com"))
+install.packages("dplyr")
+install.packages("packrat")
+install.packages("readr")
+install.packages("foreign")
+install.packages("haven")
+install.packages("knitr")
 install.packages("tidyverse")
+library("tidyverse")
+library("dplyr")
+library("packrat")
+library("readr")
+library("foreign")
+library("haven")
+library("knitr")
+library(memisc)
+
 ```
+
 
 
 # Create data.set object from "data" object (tbl)
