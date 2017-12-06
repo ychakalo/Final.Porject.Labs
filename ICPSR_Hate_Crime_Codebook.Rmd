@@ -24,13 +24,14 @@ The sampling population of this yearly study are all incident reports within the
 # Loading libraries
 ```{r}
 options(repos = c(CRAN = "http://cran.rstudio.com"))
-install.packages("dplyr")
-install.packages("packrat")
-install.packages("readr")
-install.packages("foreign")
-install.packages("haven")
-install.packages("knitr")
-install.packages("tidyverse")
+#install.packages("dplyr")
+#install.packages("packrat")
+# install.packages("readr")
+# install.packages("foreign")
+# install.packages("memisc")
+# install.packages("haven")
+# install.packages("knitr")
+# install.packages("tidyverse")
 library("tidyverse")
 library("dplyr")
 library("packrat")
@@ -38,31 +39,39 @@ library("readr")
 library("foreign")
 library("haven")
 library("knitr")
-library(memisc)
+library("memisc")
 
+```
+
+```{r}
+setwd("/Users/soniachakalo/Downloads/Final.Porject.Labs")
+
+opts_knit$set(root.dir = "/Users/soniachakalo/Downloads/Final.Porject.Labs")
+getwd()
+```
+
+
+#2002
+```{r}
+data2 <- read_tsv("/Users/soniachakalo/Downloads/Final.Porject.Labs/23625_0002_Data.tsv")
+  
+data_subset2 <- data2 %>%
+  dplyr::select(CITY, STATECOD, POP1, TNUMVTMS, TNUMOFF, GOFFRAC, BIASMO1, VTYP_I1, LOCCOD1, VTYP_I1, LOCCOD1) 
+
+str(data2$VTYP)
+```
+
+# 2013
+```{r}
+data13 <- read_tsv("/Users/soniachakalo/Downloads/Final.Porject.Labs/36118-0002-Data.tsv")
+  
+data_subset13 <- data13 %>%
+  dplyr::select(CITY, STATECOD, POP1, TNUMVTMS, TNUMOFF, GOFFRAC, BIASMO1, VTYP_I1, LOCCOD1, VTYP_I1, LOCCOD1) 
 ```
 
 
 
 # Create data.set object from "data" object (tbl)
-
-```{r}
-data2 <- read_tsv("~/Downloads/Final.Porject.Labs/ICPSR_23625_2002/DS0002/23625-0002-Data.tsv")
-
-data13 <- read_tsv("~/Downloads/Final.Porject.Labs/ICPSR_36118_2013/DS0002/36118-0002-Data.tsv")
-```
-
-# Making my original data subset
-
-```{r}
-data_subset2 <- data2 %>%
-  select(CITY, STATECOD, POP1, TNUMVTMS, TNUMOFF, GOFFRAC, BIASMO1, VTYP_I1, LOCCOD1, VTYP_I1, LOCCOD1)  
-
-data_subset13 <- data13 %>%
-  select(CITY, STATECOD, POP1, TNUMVTMS, TNUMOFF, GOFFRAC, BIASMO1, VTYP_I1, LOCCOD1, VTYP_I1, LOCCOD1) 
-```
-
-
 
 ```{r}
 data_set2 <- as.data.set(data_subset2)
