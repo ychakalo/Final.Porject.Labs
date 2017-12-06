@@ -1,0 +1,130 @@
+---
+title: "Lab 15 - Multivariate Regression & Interpretation"
+author: "Yana Chakalo"
+date: "November 30, 2017"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+Complete the following exercises below and include all code used to find the answers. Knit together the PDF document and commit both the Lab 15 RMD file and the PDF document to Git. Push the changes to GitHub so both documents are visible in your public GitHub repository.
+
+
+## Installing packages that i might need to use.
+```{r}
+options(repos = c(CRAN = "http://cran.rstudio.com"))
+install.packages("dplyr")
+install.packages("packrat")
+install.packages("readr")
+install.packages("foreign")
+install.packages("haven")
+install.packages("knitr")
+install.packages("tidyverse")
+library("tidyverse")
+library("dplyr")
+library("packrat")
+library("readr")
+library("foreign")
+library("haven")
+library("knitr")
+```
+
+```{r}
+setwd("/Users/soniachakalo/Downloads/Final.Porject.Labs")
+
+opts_knit$set(root.dir = "/Users/soniachakalo/Downloads/Final.Porject.Labs")
+
+getwd()
+```
+
+#2002
+```{r}
+data2 <- read_tsv("/Users/soniachakalo/Downloads/Final.Porject.Labs/23625_0002_Data.tsv")
+  
+data_subset2 <- data2 %>%
+  select(CITY, STATECOD, POP1, TNUMVTMS, TNUMOFF, GOFFRAC, BIASMO1, VTYP_I1, LOCCOD1, VTYP_I1, LOCCOD1) 
+```
+
+#2013
+```{r}
+data13 <- read_tsv("/Users/soniachakalo/Downloads/Final.Porject.Labs/36118-0002-Data.tsv")
+  
+data_subset13 <- data13 %>%
+  select(CITY, STATECOD, POP1, TNUMVTMS, TNUMOFF, GOFFRAC, BIASMO1, VTYP_I1, LOCCOD1, VTYP_I1, LOCCOD1) 
+# replace with variable's you wish to add
+```
+
+
+
+
+**1. Select a second explanatory variable from your dataset that you think has implications for the theoretical association of your focal relationship.**
+
+a. Describe the theoretical reasoning for selecting this variable.
+
+
+The second explantory varaible I will select in relation to the BIASMO1 is the state location (STATECOD) of where the hate crime took place. I selected this variable because we know that different states within the US have varying cultures and ideologies and different political views so theoretically the idea is that by knowing the location of where the hate crime was committed we can then explain what the bias motivation is behind the crime based on the location alone. For example, the state of Missouri is not LGBTQ+ friendly so if a hate crime is committed in this state it might help predict that the hate crime is against the LGBTQ+ community.  
+
+
+
+b. What type of relationship do you think this variable has with your focal variables? Given that, what do you expect to happen to your focal relationship when it is added to the model?
+
+
+
+I think this variable has an indicator towards pre-determining what the bias motivations are and could be for each state and look at trends over 10 years of which states are having which bias motives occur the most or the least. What I expect to happen once this is put into my model is to find a bigger correlation with the bias motive than any other variable because states within the US have their own culture and view points.
+
+
+
+c. Is it a continuous or categorical variable? What implications does this have for a multivariate regression equation?
+
+
+The variable is a categorical variable which means that the variable has dummy varaibles assigned to each level to represent a category. Adding this variable to the multivariate regression equation allows you to extend bivariate regression to an arbitrary number of explanatory variables and look at the statistical significance and correlation between all three (or more variables). However, some problems with this model is it can cause a simpson paradox which can cause an admitted variable bias and can be confusing to read as you start adding more variables because there is one slope and units are not all the same.
+
+
+
+d. Conduct a multivariate linear regression with this additional explanatory variable and save the model object. Print out the full results by calling `summary()` on your model object.
+
+#2002, Variables = BIASMO1, LOCCOD1, and STATECOD
+```{r}
+BIASMO1_LOCCOD1_STATECOD <- lm(formula = BIASMO1 ~ STATECOD + LOCCOD1, data = data_subset2)
+
+summary(BIASMO1_LOCCOD1_STATECOD)
+```
+
+
+e. Describe the results of the multivariate analysis, highlighting:
+* the apparent association between the control variable and the focal response variable
+* how the focal association changed when you incorporatedthe control variable
+* the implications of these results for your focal association
+
+
+The assoication between the bias motive and the focal response variable, state code, shows that these two varaibles are possibly statistically significant because of the p-value which is super small at 0.000000000000000022. When incorporating the statecod variable the focal association between the bias motive and the location began statistically significant more when the city variable is present. This could mean that to determine the bias motive the location of the crime is alone not helpful but when we know the state location with it then the bias motive becomes much more correlated with the location of the hate crime. 
+
+
+
+
+f. How well does this model fit the data? Is it an improvement over the bivariate model? Why or why not?
+
+This model is an improvment to the bivariate model because it adds another piece of context that to how hate crimes should be understood. That there are multiple varaibles that need to be used to explain the bias motivation behind the crime. It think this model fits the data pretty well because of the better p-value, however, the data could still be misrepresented or inaccuratly.
+
+**2. Select any additional variables you want to incorporate into your final model. For each additional variable added to the model answer the following questions:**
+
+
+#I have no other additional variables I want to use.
+
+
+a. Describe the theoretical reasoning for selecting this variable.
+
+b. What type of relationship do you think this variable has with your focal variables? Given that, what do you expect to happen to your focal relationship when it is added to the model?
+
+c. Is it a continuous or categorical variable? What implications does this have for a multivariate regression equation?
+
+d. Conduct a multivariate linear regression by adding one explanatory variable at a time and save the model objects. Print out the full results by calling `summary()` on each model object.
+
+e. Describe the results of the multivariate analysis, highlighting:
+* the apparent association between each additional control variable and the focal response variable
+* how the focal association changed when you incorporated each control variable
+* the implications of these results for your focal association
+
+f. How well does the full (all explanatory variables included) model fit? Are any of the other models you ran a better fit? Explain how you came to the conclusion you did. 
+
+g. Select the model that you think best fits the data. Provide a brief synopsis of the analysis of your data using this model and describe the implications for the theoretical arguments you set out to test.
