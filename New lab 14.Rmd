@@ -3,8 +3,8 @@ title: "Lab 14 - Bivariate Regression & Interpretation"
 author: "Yana Chakalo"
 date: "November 28, 2017"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 Complete the following exercises below and include all code used to find the answers. Knit together the PDF document and commit both the Lab 14 RMD file and the PDF document to Git. Push the changes to GitHub so both documents are visible in your public GitHub repository.
@@ -141,6 +141,9 @@ LOCCOD1_BIASMO1 <- lm(formula = LOCCOD1 ~ BIASMO1, data = data_subset13)
 plot(LOCCOD1_BIASMO1)
 summary(LOCCOD1_BIASMO1)
 
+table <- stargazer(LOCCOD1_BIASMO1)
+
+stargazer(LOCCOD1_BIASMO1, type = "text", title="Relationship Between Bias Motive and Location", digits=3, out="table1.txt")
 ```
 
 c. What is the direction, magnitude, and statistical significance of the bivariate association between the explanatory and response variables. 
